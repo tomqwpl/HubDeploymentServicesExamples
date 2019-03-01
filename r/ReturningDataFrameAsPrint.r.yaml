@@ -1,0 +1,13 @@
+label: PKGR04 - Returning R data frame in print format
+categories:
+- Example
+- R Language Example
+- Package Example
+description: |
+  This example demonstrates returning a data frame in
+  standard R print format.
+
+  The R object is formatted using `base.print`
+
+resultFormat: print
+resultObjectName: result

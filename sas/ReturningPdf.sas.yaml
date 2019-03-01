@@ -1,0 +1,17 @@
+label: PKGSAS09 - Returning PDF
+categories:
+- Example
+- SAS Language Example
+- Package Example
+description: |
+  This example demonstrates returning PDF output
+  generated using ODS PDF. It performs a simple
+  PROC PRINT of a data set to PDF and returns
+  the result.
+
+  We have to explicitly set the resultContentType
+  ('Output Format' in the Web Portal) to 'application/pdf'
+  to ensure that the result is rendered correctly in
+  the browser.
+
+resultContentType: application/pdf

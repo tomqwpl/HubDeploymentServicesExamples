@@ -1,0 +1,39 @@
+label: PKGSAS06c - Exploring Integer parameters
+categories:
+- Example
+- SAS Language Example
+- Package Example
+description: |
+  This example demonstrates use of integer parameters
+
+  In the case of the SAS language there is no specific
+  integer type, so all numeric values are passed to
+  the program as doubles. However an invocation interface
+  will use the integer type to provide suitable input validation.
+
+parameters:
+  intOptionalNoDefault:
+    label: Int Optional No Default
+    datatype: int
+  intOptionalDefault42:
+    label: Int Optional Default 42
+    datatype: int
+    defaultValue: 42
+  intOptionalMax42:
+    label: Int Optional Max 42
+    datatype: int
+    max: 42
+  intOptionalMin42:
+    label: Int Optional Min 42
+    datatype: int
+    min: 42
+  intRequiredNoDefault:
+    label: Int Required No Default
+    datatype: int
+    required: true
+  intRequiredDefault42:
+    label: Int Required Default 42
+    datatype: int
+    defaultValue: 42
+    required: true
+

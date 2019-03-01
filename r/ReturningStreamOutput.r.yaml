@@ -1,0 +1,22 @@
+label: PKGR06 - Returning stream output.
+categories:
+- Example
+- R Language Example
+- Package Example
+description: |
+  This example demonstrates using stream output to deal
+  with cases that cannot be dealt with by returning an
+  R object directly.
+
+  Here we use it to specify the `pretty` option when
+  converting an R object to JSON.
+
+  An R *connection* object is created called 'webout'.
+  A connection object in R can be used anywhere a file
+  can bs used.
+
+  On the 'Inputs & Output' tab of the program definition,
+  the 'Output type' is set to 'stream'. Since we are returning
+  JSON, we then set the 'Output format' field to JSON.
+resultType: stream
+resultContentType: application/json

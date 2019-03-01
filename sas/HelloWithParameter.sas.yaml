@@ -1,0 +1,28 @@
+label: PKGSAS02 - Hello With Parameter
+categories:
+- Example
+- SAS Language Example
+- Package Example
+description: |
+  Here we make things very slightly more complicated,
+  and useful, by adding a parameter. When the program is invoked
+  through a user interface such as the Microsoft Excel plugin,
+  the user will be prompted for the value of the parameter.
+
+  A parameter has a name. This is the internal name for the
+  parameter, the name by which you refer to the parameter within
+  the program. It then also has a label which is the string used
+  in a user interface to refer to the parameter. There is then a
+  prompt string, which is the string used to prompt the end user
+  for a value of the parameter.
+
+  A parameter can be optional, but here we make the parameter
+  required to ensure that the end user provides a value for it.
+  The runtime server will reject a request that doesn't include
+  a value for the parameter.
+parameters:
+  name:
+    label: Name
+    datatype: string
+    prompt: Enter a Name
+    required: true

@@ -1,0 +1,36 @@
+label: PKGSAS05 - Return the parameters as a data set
+categories:
+- Example
+- SAS Language Example
+- Package Example
+description: |
+  A useful debugging technique is just to
+  return the CTX.PARMS dataset directly. Note that in
+  this scenario there is no need for program text at all,
+  it's all handled by the other configuration settings.
+
+  We use a resultType of "dataset", set the resultFormat
+  to "json", and set the resultDatasetName to "CTX.PARMS"
+  (case of the dataset name is not significant)
+resultType: dataset
+resultFormat: json
+resultDatasetName: CTX.PARMS
+parameterStyle: dataset
+parameters:
+  stringParm:
+    datatype: string
+
+  intParm:
+    datatype: int
+
+  realParm:
+    datatype: real
+
+  dateParm:
+    datatype: date
+
+  timeParm:
+    datatype: time
+
+  datetimeParm:
+    datatype: datetime

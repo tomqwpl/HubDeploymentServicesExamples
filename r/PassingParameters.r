@@ -1,0 +1,1 @@
+result <- paste('Hello', name)

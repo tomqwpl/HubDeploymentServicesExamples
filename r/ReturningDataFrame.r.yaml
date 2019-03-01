@@ -1,0 +1,12 @@
+label: PKGR02 - Returning R data frame
+categories:
+- Example
+- R Language Example
+- Package Example
+description: |
+  This example demonstrates returning an R data frame
+  as JSON. Again, the output is a JSON array, but
+  in this case the elements of the array are JSON objects.
+
+resultFormat: json
+resultObjectName: result

@@ -1,0 +1,44 @@
+label: PKGSAS06b - Exploring Boolean parameters
+categories:
+- Example
+- SAS Language Example
+- Package Example
+description: |
+  This example demonstrates use of a boolean parameter
+
+  The program has parameters that are required and optional,
+  and with default values of true and false.
+
+
+parameters:
+  boolOptionalNoDefault:
+    label: Boolean Optional No Default
+    datatype: bool
+
+  boolOptionalDefaultFalse:
+    label: Boolean Optional Default False
+    datatype: bool
+    defaultValue: false
+
+  boolOptionalDefaultTrue:
+    label: Boolean Optional Default true
+    datatype: bool
+    defaultValue: true
+
+  boolRequiredNoDefault:
+    label: Boolean Required No Default
+    datatype: bool
+    required: true
+
+  boolRequiredDefaultFalse:
+    label: Boolean Required Default false
+    datatype: bool
+    defaultValue: false
+    required: true
+
+  boolRequiredDefaultTrue:
+    label: Boolean Required Default true
+    datatype: bool
+    defaultValue: true
+    required: true
+

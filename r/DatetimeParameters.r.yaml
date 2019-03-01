@@ -1,0 +1,21 @@
+label: PKGR07g - Exploring Datetime parameters
+categories:
+- Example
+- R Language Example
+- Package Example
+description: |
+  This example demonstrates use of a Datetime parameter.
+
+  The HTTP query parameters are converted
+  from strings by first using `as.numeric` to convert the
+  value to numeric, then using `asPOSIXct` to convert
+  the value into a datetime value.
+resultFormat: print
+resultObjectName: result
+
+parameters:
+  datetimeParm:
+    label: Datetime Parm
+    datatype: datetime
+    prompt: Enter a datetime
+    required: true

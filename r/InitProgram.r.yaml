@@ -1,0 +1,40 @@
+label: PKGR09 - Use of initialisation program text
+categories:
+- Example
+- R Language Example
+- Package Example
+description: |
+  This example demonstrates use of the initialisation
+  program text.
+
+  The runtime server supports processing multiple requests
+  through the same R runtime for efficiency. The runtime
+  environment uses R environment objects to isolate each request
+  and to avoid invocation of a program poluting other invocations.
+
+  A program can specify an initialisation program text that will
+  be run only once per R runtime. This can be used to load
+  complex models into memory and avoid the overhead of having to
+  load a model on each request. The initialisation program text
+  is run within the context of a separate R environment, and this
+  environment is then locked to prevent further modification.
+
+  This example simply sets a variable in the initialisation text that
+  is then referenced in the main program text.
+
+  Note that the set up of the 'Demo' Environment object in the Hub
+  is such that a new worker process is created for each request. Since
+  a new worker process is created for each request, a new R runtime
+  is created per request anyway, so the initialisation program is
+  execute for each request. In order to properly see the effect of
+  the one-time execution of the initialisation program it is necessary
+  to set the `Idle Timeout` value on the `Default R Processing Engine`
+  engine of the Demo Environment to a value other than 0.
+
+  From the log it is possible to tell whether the initialisation
+  program has been run or not.
+
+resultFormat: json
+resultObjectName: result
+initProgramText: |
+  a <- 42

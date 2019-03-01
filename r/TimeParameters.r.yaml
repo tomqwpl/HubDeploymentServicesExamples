@@ -1,0 +1,33 @@
+label: PKGR07f - Exploring Time parameters
+categories:
+- Example
+- R Language Example
+- Package Example
+description: |
+  This example demonstrates use of a time parameter.
+
+  R doesn't have direct support for time of day values.
+  Time parameters are represented as datetime values and
+  are therefore represented as time of day with a date
+  of 1 Jan 1970 UTC. So passing a time value of 11:30
+  results in a datetime value of 1 Jan 1970 at 11:30
+  UTC.
+
+  The HTTP query parameters are converted
+  from strings by first using `as.numeric` to convert the
+  value to numeric, then using `asPOSIXct` to convert
+  the value into a datetime value.
+
+resultFormat: print
+resultObjectName: result
+
+parameters:
+  timeRequired:
+    label: Time Required
+    datatype: time
+    prompt: Enter a time
+    required: true
+  timeOptional:
+    label: Time Optional
+    datatype: time
+    prompt: Enter a time

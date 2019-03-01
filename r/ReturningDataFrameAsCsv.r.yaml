@@ -1,0 +1,18 @@
+label: PKGR03 - Returning R data frame as CSV
+categories:
+- Example
+- R Language Example
+- Package Example
+description: |
+  This example demonstrates returning a data frame as
+  CSV.
+
+  On the 'Inputs & Output' tab of the program definition
+  'Output type' is set to "R Object" (the default), and
+  'Output format' is set to CSV. The 'R Object name' field
+  names the object to return, in this case 'result'.
+
+  The R object is converted to CSV using `utils::write.csv`
+
+resultFormat: csv
+resultObjectName: result

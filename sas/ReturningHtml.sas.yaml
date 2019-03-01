@@ -1,0 +1,18 @@
+label: PKGSAS07 - Returning HTML
+categories:
+- Example
+- SAS Language Example
+- Package Example
+description: |
+  This example demonstrates generating and returning
+  HTML output using ODS HTML. It performs a
+  simple PROC PRINT of a data set to HTML and returns
+  the result.
+
+  We have to explicitly set the resultContentType
+  ('Output Format' in the Web Portal) to 'text/html'
+  to ensure that the result is rendered correctly in
+  the browser.
+
+resultContentType: text/html
+

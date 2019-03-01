@@ -1,0 +1,13 @@
+label: PKGR05 - Returning console output
+categories:
+- Example
+- R Language Example
+- Package Example
+description: |
+  This example demonstrates how it's possible to
+  return the text written to the normal console output.
+
+  On the 'Inputs & Output' tab of the program definition,
+  the 'Output type' is set to 'console'.
+
+resultType: console

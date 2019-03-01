@@ -1,0 +1,32 @@
+# This is a package descriptor file for the
+# package. It describes, amonst other things,
+# the list of programs to publish in the directory
+publishInDirectory:
+- sas/ExploringBooleanParameters.sas
+- sas/ExploringDateParameters.sas
+- sas/ExploringDatetimeParameters.sas
+- sas/ExploringIntParameters.sas
+- sas/ExploringTimeParameters.sas
+- sas/HelloWorld.sas
+- sas/HelloWithParameter.sas
+- sas/ParametersAsDataset.sas
+- sas/ReturnDataset.sas
+- sas/ReturningGraphics.sas
+- sas/ReturningHtml.sas
+- sas/ReturningListing.sas
+- sas/ReturningPdf.sas
+- sas/ReturnParametersAsDataset.sas
+- r/HelloWorld.r
+- r/ReturningDataFrame.r
+- r/ReturningDataFrameAsCsv.r
+- r/ReturningDataFrameAsPrint.r
+- r/ReturningConsoleOutput.r
+- r/ReturningStreamOutput.r
+- r/PassingParameters.r
+- r/BooleanParameters.r
+- r/IntegerParameters.r
+- r/DateParameters.r
+- r/TimeParameters.r
+- r/DatetimeParameters.r
+- r/ProcessingRequestBody.r
+- r/InitProgram.r

@@ -1,0 +1,15 @@
+label: PKGSAS06f - Exploring Datetime parameters
+categories:
+- Example
+- SAS Language Example
+- Package Example
+description: |
+  This example demonstrates use of a Datetime parameter.
+
+parameters:
+  datetimeParm:
+    label: Datetime Parm
+    datatype: datetime
+    prompt: Enter a datetime
+    required: true
+

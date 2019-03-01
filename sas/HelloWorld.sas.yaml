@@ -1,0 +1,12 @@
+# This descriptor is only really necessary because we
+# are wanting to provide a label and some categories.
+# With no package descriptor file the label would be
+# the filename of the program, minus any extension
+# or path information, and the program would be published
+# with no categories (assuming it's included in the list
+# of programs to be published)
+label: PKGSAS01 - Hello World
+categories:
+- Example
+- SAS Language Example
+- Package Example

@@ -1,0 +1,12 @@
+label: PKGSAS11 - Returning Graphics
+categories:
+- Example
+- SAS Language Example
+- Package Example
+description: |
+  This example demonstrates generating some simple graphical output.
+
+  The resultContentType property must be set appropriately for the
+  type of image generated.
+
+resultContentType: image/png

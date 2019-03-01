@@ -1,0 +1,36 @@
+label: PKGR07e - Exploring Date parameters
+categories:
+- Example
+- R Language Example
+- Package Example
+description: |
+  This example demonstrates use of date parameters.
+
+  Dates have different representations in different
+  programming languages. A client making a request
+  to execute a program (be that programatically through
+  something like cURL, or manually through an invocation
+  user interface) shouldn't have to worry about those
+  differences.
+
+  The format of a date value on a request is therefore
+  fixed and not dependent on the language in which the
+  program may have been written.
+
+  The HTTP query parameters are converted from strings to
+  date values by first using `as.numeric` to convert the
+  value into a numeric, then using the `as.Date` function.
+
+resultFormat: print
+resultObjectName: result
+
+parameters:
+  dateRequired:
+    label: Date Required
+    datatype: date
+    prompt: Enter a date
+    required: true
+  dateOptional:
+    label: Date Optional
+    datatype: date
+    prompt: Enter a date

@@ -1,0 +1,27 @@
+label: PKGR08 - Processing HTTP Request Body Directly
+categories:
+- Example
+- R Language Example
+- Package Example
+description: |
+  For advanced scenarios it's possible to get direct
+  access to the body of the HTTP request, and process the
+  body directly. This may be necessary if the body is a JSON or
+  XML body with a complex structure, or perhaps if the body is
+  of a content type not otherwise supported by Hub Deployment Services.
+
+  To do this, declare a single parameter of type "stream".
+  The stream should be given a content type value.
+  If the content type of the request matches the content type
+  of the stream, then the request body is made available to the program
+  through the named stream parameter.
+
+  Note that this example cannot be invoked using the invocation interface
+  in the Hub portal, nor from the Excel plugin. To invoke this example
+  you need to use something like cURL, or Postman.
+
+parameters:
+  webin:
+    datatype: stream
+    contentType: text/plain
+resultType: stream

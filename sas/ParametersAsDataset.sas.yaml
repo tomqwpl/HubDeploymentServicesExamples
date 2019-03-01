@@ -1,0 +1,36 @@
+label: PKGSAS04 - Passing parameters to program as data set
+categories:
+- Example
+- SAS Language Example
+- Package Example
+description: |
+  This example demonstrates an alternative way of passing
+  parameters to the program, as a data set. The key
+  here is to set parameterStyle to the value DATASET,
+  or use the "Supply inputs as a data set" switch in the
+  user interface.
+
+  We create one parameter of each basic type so we can
+  explore how the values are passed in. We explore
+  the different types of parameters later on.
+resultContentType: text/html
+parameters:
+  stringParm:
+    datatype: string
+
+  intParm:
+    datatype: int
+
+  realParm:
+    datatype: real
+
+  dateParm:
+    datatype: date
+
+  timeParm:
+    datatype: time
+
+  datetimeParm:
+    datatype: datetime
+
+parameterStyle: dataset

@@ -1,0 +1,29 @@
+label: PKGR01 - Hello World
+categories:
+- Example
+- R Language Example
+- Package Example
+description: |
+  This is the simplest possible example, a program
+  that takes no input and produces a fixed output,
+  'Hello World!'.
+
+  By default the result that is returned is the value of
+  an R object, converted into text in one of a number of
+  ways: JSON (resultFormat=json), CSV (resultFormat=csv),
+  tab (tab separated, resultFormat=tab) and print (standard
+  R print format, resultFormat=print). Here we use JSON.
+  The object to return is named in the resultObjectName
+  property.
+
+  R objects are always arrays, so in the case of returning
+  JSON, you will always get a JSON array. In this case
+  the R object is a vector, so the output is an array of
+  strings.
+
+  The R object is converted to JSON using the jsonlite package,
+  invoking `jsonlite::toJSON`
+programText: |
+  result <- 'Hello World!'
+resultFormat: json
+resultObjectName: result

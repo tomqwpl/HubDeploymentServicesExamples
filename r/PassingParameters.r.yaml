@@ -1,0 +1,21 @@
+label: PKGR07a - Passing Parameters
+categories:
+- Example
+- R Language Example
+- Package Example
+description: |
+  This example demonstrates how parameters are passed in
+  to the R program.
+
+  Each parameter is assigned to an R variable. In this
+  case we use a string parameter, and the value is assigned
+  to the R object in the obvious way.
+
+resultFormat: json
+resultObjectName: result
+parameters:
+  name:
+    datatype: string
+    required: true
+    label: Name
+    prompt: Enter your name

@@ -1,0 +1,8 @@
+label: PKGSAS08 - Returning Listing
+categories:
+- Example
+- SAS Language Example
+- Package Example
+description: |
+  This example demonstrates returning plain text
+  LISTING output.

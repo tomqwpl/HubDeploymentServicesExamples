@@ -1,0 +1,29 @@
+label: PKGSAS03 - Returning Data set
+categories:
+- Example
+- SAS Language Example
+- Package Example
+categories:
+- Example
+- SAS Language Example
+- Package Example
+description: |
+  This example demonstrates the other style of output
+  offered by a standard program. We can directly
+  return a data set. All we need to do is name
+  the data set to return and the format of output
+  that we want and the framework takes care of the
+  conversion for us. We can return data sets in
+  XML (resultFormat=xml), JSON (resultFormat=json)
+  or CSV (resultFormat=csv). Here we use JSON.
+
+  To use this functionality, resultType has to be set to
+  'dataset', and the resultDatasetName property has to be
+  supplied. This is the name of a dataset in normal
+  'library.member' format.
+
+  In this example we construct a simple data set
+  and return it.
+resultType: dataset
+resultFormat: json
+resultDatasetName: WORK.example
