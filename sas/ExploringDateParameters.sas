@@ -1,0 +1,13 @@
+data _null_;
+file _webout;
+dateRequired = &dateRequired;
+dateOptional = &dateOptional;
+dateOptionalDefault = &dateOptionalDefault;
+dateRequiredMax = &dateRequiredMax;
+dateRequiredMin = &dateRequiredMin;
+put "dateRequired value was " dateRequired date9. " (" dateRequired +(-1) ")";
+put "dateOptional value was " dateOptional date9. " (" dateOptional +(-1) ")";
+put "dateOptionalDefault value was " dateOptionalDefault date9. " (" dateOptionalDefault +(-1) ")";
+put "dateRequiredMax value was " dateRequiredMax date9. " (" dateRequiredMax +(-1) ")";
+put "dateRequiredMin value was " dateRequiredMin date9. " (" dateRequiredMin +(-1) ")";
+run;

@@ -1,0 +1,1740 @@
+hubpackage: 1.0.0
+name: Hub Deployment Services Examples
+programs:
+  sas/ExploringChoiceParameters:
+    label: PKGSAS06a - Exploring Choice parameters
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates use of choice parameters.
+
+      For each choice two values must be provided.
+      One, the 'Label' is the string displayed to the user
+      in the selection box of an invocation interface. The
+      other, the 'Value' is the value actually submitted on
+      the request, the value that the program should expect
+      to deal with.
+    type: standard
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: text/plain
+    programFile: sas/ExploringChoiceParameters.sas
+    parameterStyle: macroVars
+    parameters:
+      choiceRequired:
+        label: Choice Parm Required
+        datatype: choice
+        prompt: Enter your choice
+        required: true
+        choices:
+        - value: value1
+        - value: value2
+      choiceOptional:
+        label: Choice Parm Optional
+        datatype: choice
+        prompt: Enter your choice
+        choices:
+        - value: value1
+        - value: value2
+  sas/ExploringBooleanParameters:
+    label: PKGSAS06b - Exploring Boolean parameters
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates use of a boolean parameter
+
+      The program has parameters that are required and optional,
+      and with default values of true and false.
+    type: standard
+    programFile: sas/ExploringBooleanParameters.sas
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: text/plain
+    parameterStyle: macroVars
+    parameters:
+      boolOptionalNoDefault:
+        label: Boolean Optional No Default
+        datatype: bool
+      boolOptionalDefaultFalse:
+        label: Boolean Optional Default False
+        datatype: bool
+        defaultValue: false
+      boolOptionalDefaultTrue:
+        label: Boolean Optional Default true
+        datatype: bool
+        defaultValue: true
+      boolRequiredNoDefault:
+        label: Boolean Required No Default
+        datatype: bool
+        required: true
+      boolRequiredDefaultFalse:
+        label: Boolean Required Default false
+        datatype: bool
+        defaultValue: false
+        required: true
+      boolRequiredDefaultTrue:
+        label: Boolean Required Default true
+        datatype: bool
+        defaultValue: true
+        required: true
+  sas/ExploringDateParameters:
+    label: PKGSAS06d - Exploring Date parameters
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates use of date parameters.
+
+      Dates have different representations in different
+      programming languages. A client making a request
+      to execute a program (be that programatically through
+      something like cURL, or manually through an invocation
+      user interface) shouldn't have to worry about those
+      differences.
+
+      The format of a date value on a request is therefore
+      fixed and not dependent on the language in which the
+      program may have been written.
+    type: standard
+    programFile: sas/ExploringDateParameters.sas
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: text/plain
+    parameterStyle: macroVars
+    parameters:
+      dateRequired:
+        label: Date Required
+        datatype: date
+        prompt: Enter a date
+        required: true
+      dateOptional:
+        label: Date Optional
+        datatype: date
+        prompt: Enter a date
+      dateOptionalDefault:
+        label: Date Optional With Default
+        datatype: date
+        prompt: Enter a date
+        defaultValue: 18410
+      dateRequiredMax:
+        label: Date Required with Max
+        datatype: date
+        prompt: Enter a date
+        max: 19000
+        required: true
+      dateRequiredMin:
+        label: Date Required With Min
+        datatype: date
+        prompt: Enter a date
+        min: 18000
+        required: true
+  sas/ExploringDatetimeParameters:
+    label: PKGSAS06f - Exploring Datetime parameters
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates use of a Datetime parameter.
+    type: standard
+    programFile: sas/ExploringDatetimeParameters.sas
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: text/plain
+    parameterStyle: macroVars
+    parameters:
+      datetimeParm:
+        label: Datetime Parm
+        datatype: datetime
+        prompt: Enter a datetime
+        required: true
+      datetimeOptionalDefault:
+        label: Datetime Optional Parm
+        datatype: datetime
+        prompt: Enter a datetime
+        required: false
+        defaultValue: 1590662266
+      datetimeOptionalMin:
+        label: Datetime Optional with Min
+        datatype: datetime
+        prompt: Enter a datetime
+        required: false
+        min: 1577836800
+      datetimeOptionalMax:
+        label: Datetime Optional with Max
+        datatype: datetime
+        prompt: Enter a datetime
+        required: false
+        max: 1607817599
+  sas/ExploringTimeParameters:
+    label: PKGSAS06e - Exploring Time parameters
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates use of a time parameter.
+    type: standard
+    programFile: sas/ExploringTimeParameters.sas
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: text/plain
+    parameterStyle: macroVars
+    parameters:
+      timeRequired:
+        label: Time Required
+        datatype: time
+        prompt: Enter a time
+        required: true
+      timeOptional:
+        label: Time Optional
+        datatype: time
+        prompt: Enter a time
+      timeOptionalDefault:
+        label: Time Optional With Default
+        datatype: time
+        prompt: Enter a time
+        defaultValue: 43200
+      timeRequiredMin:
+        label: Time Required with Min
+        datatype: time
+        prompt: Enter a time
+        min: 28800
+        required: true
+      timeRequiredMax:
+        label: Time Required with Max
+        datatype: time
+        prompt: Enter a time
+        max: 64800
+        required: true
+
+  sas/ExploringIntParameters:
+    label: PKGSAS06c - Exploring Integer parameters
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates use of integer parameters
+
+      In the case of the SAS language there is no specific
+      integer type, so all numeric values are passed to
+      the program as doubles. However an invocation interface
+      will use the integer type to provide suitable input validation.
+    type: standard
+    programFile: sas/ExploringIntParameters.sas
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: text/plain
+    parameterStyle: macroVars
+    parameters:
+      intOptionalNoDefault:
+        label: Int Optional No Default
+        datatype: int
+      intOptionalDefault42:
+        label: Int Optional Default 42
+        datatype: int
+        defaultValue: 42
+      intOptionalMax42:
+        label: Int Optional Max 42
+        datatype: int
+        max: 42
+      intOptionalMin42:
+        label: Int Optional Min 42
+        datatype: int
+        min: 42
+      intRequiredNoDefault:
+        label: Int Required No Default
+        datatype: int
+        required: true
+      intRequiredDefault42:
+        label: Int Required Default 42
+        datatype: int
+        defaultValue: 42
+        required: true
+  sas/ReturnParametersAsDataset:
+    label: PKGSAS05 - Return the parameters as a data set
+    categories:
+    - SAS Language Example
+    description: |
+      A useful debugging technique is just to
+      return the CTX.PARMS dataset directly. Note that in
+      this scenario there is no need for program text at all,
+      it's all handled by the other configuration settings.
+
+      We use a resultType of "dataset", set the resultFormat
+      to "json", and set the resultDatasetName to "CTX.PARMS"
+      (case of the dataset name is not significant)
+    type: standard
+    results:
+      _webout:
+        resultType: dataset
+        resultFormat: json
+        resultDatasetName: CTX.PARMS
+    parameterStyle: dataset
+    parameters:
+      stringParm:
+        datatype: string
+      intParm:
+        datatype: int
+      floatParm:
+        datatype: float
+      dateParm:
+        datatype: date
+      timeParm:
+        datatype: time
+      datetimeParm:
+        datatype: datetime
+  sas/HelloWorld:
+    label: PKGSAS01 - Hello World
+    categories:
+    - SAS Language Example
+    description: |
+      This is the simplest possible example, a program
+      that takes no input and produces a fixed output,
+      'Hello World!'.
+    type: standard
+    programFile: sas/HelloWorld.sas
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: text/plain
+  sas/HelloWithParameter:
+    label: PKGSAS02 - Hello With Parameter
+    categories:
+    - SAS Language Example
+    description: |
+      Here we make things very slightly more complicated,
+      and useful, by adding a parameter. When the program is invoked
+      through a user interface such as the Microsoft Excel plugin,
+      the user will be prompted for the value of the parameter.
+
+      A parameter has a name. This is the internal name for the
+      parameter, the name by which you refer to the parameter within
+      the program. It then also has a label which is the string used
+      in a user interface to refer to the parameter. There is then a
+      prompt string, which is the string used to prompt the end user
+      for a value of the parameter.
+
+      A parameter can be optional, but here we make the parameter
+      required to ensure that the end user provides a value for it.
+      The runtime server will reject a request that doesn't include
+      a value for the parameter.
+    type: standard
+    programFile: sas/HelloWithParameter.sas
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: text/plain
+    parameterStyle: macroVars
+    parameters:
+      name:
+        label: Name
+        datatype: string
+        prompt: Enter a Name
+        required: true
+  sas/ParametersAsDataset:
+    label: PKGSAS04 - Passing parameters to program as data set
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates an alternative way of passing
+      parameters to the program, as a data set. The key
+      here is to set parameterStyle to the value 'dataset'.
+
+      We create one parameter of each basic type so we can
+      explore how the values are passed in. We explore
+      the different types of parameters later on.
+    type: standard
+    programFile: sas/ParametersAsDataset.sas
+    parameterStyle: dataset
+    parameters:
+      stringParm:
+        datatype: string
+      intParm:
+        datatype: int
+      floatParm:
+        datatype: float
+      dateParm:
+        datatype: date
+      timeParm:
+        datatype: time
+      datetimeParm:
+        datatype: datetime
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: text/html
+  sas/ReturnDataset:
+    label: PKGSAS03 - Returning Data set
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates the other style of output
+      offered by a standard program. We can directly
+      return a data set. All we need to do is name
+      the data set to return and the format of output
+      that we want and the framework takes care of the
+      conversion for us. We can return data sets in
+      XML (resultFormat=xml), JSON (resultFormat=json)
+      or CSV (resultFormat=csv). Here we use JSON.
+
+      To use this functionality, resultType has to be set to
+      'dataset', and the resultDatasetName property has to be
+      supplied. This is the name of a dataset in normal
+      'library.member' format.
+
+      In this example we construct a simple data set
+      and return it.
+    type: standard
+    programFile: sas/ReturnDataset.sas
+    results:
+      _webout:
+        resultType: dataset
+        resultFormat: json
+        resultDatasetName: WORK.example
+  sas/ReturningGraphics:
+    label: PKGSAS11 - Returning Graphics
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates generating some simple graphical output.
+
+      The resultContentType property must be set appropriately for the
+      type of image generated.
+    type: standard
+    programFile: sas/ReturningGraphics.sas
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: image/png
+  sas/ReturningHtml:
+    label: PKGSAS07 - Returning HTML
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates generating and returning
+      HTML output using ODS HTML. It performs a
+      simple PROC PRINT of a data set to HTML and returns
+      the result.
+
+      We have to explicitly set the resultContentType
+      ('Output Format' in the Web Portal) to 'text/html'
+      to ensure that the result is rendered correctly in
+      the browser.
+    type: standard
+    programFile: sas/ReturningHtml.sas
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: text/html
+  sas/ReturningExcelXml:
+    label: PKGSAS10 - Returning Microsoft Excel XML
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates returning XML output
+      compatible with Microsoft Excel. This uses the
+      EXCELXP tagset support in ODS to generate XML output.
+
+      The 'resultType' field has to be set to 'stream', and then
+      we provide a custom 'resultContentType' value of 'application/vnd.ms-excel'.
+
+      Note that executing this program will result in a file
+      being downloaded and saved with a .xls extension. Excel
+      will open this file, though it produces a warning message.
+    type: standard
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: application/vnd.ms-excel
+    programFile: sas/ReturningExcelXml.sas
+  sas/ReturningExcelXlsx:
+    label: PKGSAS12 - Returning Microsoft Excel XLSX
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates returning a properly
+      formatted XLSX file.
+
+      We set the 'resultType' field to stream, and then set
+      the 'resultContentType' to be
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'.
+    type: standard
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+    programFile: sas/ReturningExcelXlsx.sas
+  sas/ReturningListing:
+    label: PKGSAS08 - Returning Listing
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates returning plain text
+      LISTING output.
+    type: standard
+    programFile: sas/ReturningListing.sas
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: text/plain
+  sas/ReturningPdf:
+    label: PKGSAS09 - Returning PDF
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates returning PDF output
+      generated using ODS PDF. It performs a simple
+      PROC PRINT of a data set to PDF and returns
+      the result.
+
+      We have to explicitly set the resultContentType
+      ('Output Format' in the Web Portal) to 'application/pdf'
+      to ensure that the result is rendered correctly in
+      the browser.
+    type: standard
+    programFile: sas/ReturningPdf.sas
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: application/pdf
+  sas/PassingCellRangeAsXml:
+    label: PKGSAS13 - Passing a cell range from Excel as an XML stream
+    categories:
+    - SAS Language Example
+    description: |
+      Streams provide a simple ability to process more complex input
+      than can be described in single valued parameters.
+
+      A stream has an input content type. The Excel plugin recognises
+      the content types of text/xml, text/csv or application/csv,
+      and application/json. It will format the data in the cell range
+      appropriately and send the formatted data as the content of
+      the stream parameter.
+
+      At the SAS language program end, a stream is made available to
+      the program as a fileref with the same name as the parameter.
+      Normal SAS languag programming techniques are then required to
+      parse the stream.
+
+      In the case of XML, the format we use here, the Excel plugin
+      will format the data in a form that is compatible with the
+      XML LIBNAME engine. The Excel plugin creates XML such that
+      a dataset called "DATASET" is created.
+
+      In this example we simply return the dataset that is passed
+      to us.
+
+      Note that with this technique there is no way to describe the
+      schema of data that is passed in. The Excel plugin just formats
+      whatever cell range is selected and that is passed to the program.
+
+      To use this program, create a cell range such as:
+        a b
+        1 2
+      and use that as the source of the parameter. The dataset
+      that the invoked program sees will then have to columns
+      'a', and 'b'.
+
+      Note that this technique works best for simple strings and
+      numerics. In particular it doesn't work well for date values.
+    type: standard
+    parameterStyle: macroVars
+    parameters:
+      streamParm:
+        datatype: stream
+        contentType: text/xml
+    results:
+      _webout:
+        resultType: dataset
+        resultDatasetName: WORK.DATASET
+        resultFormat: json
+    programFile: sas/PassingCellRangeAsXml.sas
+  sas/PassingCellRangeAsJson:
+    label: PKGSAS14 - Passing a cell range from Excel as a JSON stream
+    categories:
+    - SAS Language Example
+    description: |
+      Here we do the same as for example PKGSAS13, just using
+      JSON.
+    type: standard
+    parameterStyle: macroVars
+    parameters:
+      streamParm:
+        datatype: stream
+        contentType: application/json
+    results:
+      _webout:
+        resultType: dataset
+        resultDatasetName: L.ROOT
+        resultFormat: json
+    programFile: sas/PassingCellRangeAsJson.sas
+  sas/ProcessingRequestBody:
+    label: PKGSAS15 - Processing HTTP Request Body Directly
+    categories:
+    - SAS Language Example
+    description: |
+      For advanced scenarios it's possible to get direct
+      access to the body of the HTTP request, and process the
+      body directly. This may be necessary if the body is a JSON or
+      XML body with a complex structure, or perhaps if the body is
+      of a content type not otherwise supported by Hub Deployment Services.
+
+      To do this, declare a single parameter of type "stream".
+      The stream should be given a content type value.
+      If the content type of the request matches the content type
+      of the stream, then the request body is made available to the program
+      through the named stream parameter.
+
+      Note that this example cannot be invoked using the invocation interface
+      in the Hub portal, nor from the Excel plugin. To invoke this example
+      you need to use something like cURL, or Postman.
+
+      This example does a simple copy of the input stream to the
+      output. Note that this technique of copying the stream shouldn't
+      be used in a production example. It only allows for inputs
+      where the lines are relatively short, and longer lines are truncated.
+      It is simply intended to illustrate use of the _webin input stream.
+    type: standard
+    results:
+      _webout:
+        resultType: stream
+        resultContentType: text/plain
+    parameterStyle: macroVars
+    parameters:
+      _webin:
+        datatype: stream
+        contentType: text/plain
+    programFile: sas/ProcessingRequestBody.sas
+  sas/ReturningMultipleResults:
+    label: PKGSAS17 - Returning Multiple Results
+    categories:
+    - SAS Language Example
+    description: |
+      This example demonstrates returning multiple results
+      objects.
+
+      This program can only be executed using the "asychronous"
+      support, executing programs synchronously doesn't support
+      multiple results
+    type: standard
+    programFile: sas/ReturningMultipleResults.sas
+    results:
+      pdfout:
+        resultType: stream
+        resultContentType: application/pdf
+      htmlout:
+        resultType: stream
+        resultContentType: text/html
+      listout:
+        resultType: stream
+        resultContentType: text/plain
+  sas/LongRunning:
+    label: PKGSAS16 - Long Running
+    categories:
+    - SAS Language Example
+    description: |
+      This is an example that sleeps for an amount
+      of time given in the argument. It is useful for
+      testing async operation.
+    type: standard
+    programFile: sas/LongRunning.sas
+    parameterStyle: macroVars
+    parameters:
+      sleepSeconds:
+        label: Time to sleep in seconds
+        datatype: int
+  sas/RemoteUser:
+    label: PKGSAS18 - Identity of remote user
+    categories:
+    - SAS Language Example
+    description: |
+      This is an example of referencing the identity
+      of the calling user.
+      There are two methods. A simple macro variable, _RMTUSER
+      or a more general function HUBCTXC('RemoteUser')
+    type: standard
+    programFile: sas/RemoteUser.sas
+    results:
+      _webout:
+        resultType: dataset
+        resultDatasetName: WORK.RESULT
+        resultFormat: json
+  r/HelloWorld:
+    label: PKGR01 - Hello World
+    categories:
+    - R Language Example
+    description: |
+      This is the simplest possible example, a program
+      that takes no input and produces a fixed output,
+      'Hello World!'.
+
+      By default the result that is returned is the value of
+      an R object, converted into text in one of a number of
+      ways: JSON (resultFormat=json), CSV (resultFormat=csv),
+      tab (tab separated, resultFormat=tab) and print (standard
+      R print format, resultFormat=print). Here we use JSON.
+      The object to return is named in the resultObjectName
+      property.
+
+      R objects are always arrays, so in the case of returning
+      JSON, you will always get a JSON array. In this case
+      the R object is a vector, so the output is an array of
+      strings.
+
+      The R object is converted to JSON using the jsonlite package,
+      invoking `jsonlite::toJSON`
+    type: r
+    programFile: r/HelloWorld.r
+    results:
+      webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: result
+  r/ReturningDataFrame:
+    label: PKGR02 - Returning R data frame
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates returning an R data frame
+      as JSON. Again, the output is a JSON array, but
+      in this case the elements of the array are JSON objects.
+    type: r
+    programFile: r/ReturningDataFrame.r
+    results:
+      webout:
+        resultFormat: json
+        resultObjectName: result
+        resultType: object
+  r/ReturningDataFrameAsCsv:
+    label: PKGR03 - Returning R data frame as CSV
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates returning a data frame as
+      CSV.
+
+      The 'resultType' field is set to 'object' and the
+      'resultObjectName' field is set to the name of the R
+      object we would like to return. The 'resultFormat' field is
+      then set to 'csv' to indicate that we would like the result
+      returned in CSV.
+
+      The R object is converted to CSV using `utils::write.csv`
+    type: r
+    programFile: r/ReturningDataFrameAsCsv.r
+    results:
+      webout:
+        resultFormat: csv
+        resultObjectName: result
+        resultType: object
+  r/ReturningDataFrameAsPrint:
+    label: PKGR04 - Returning R data frame in print format
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates returning a data frame in
+      standard R print format.
+
+      The R object is formatted using `base.print`
+    type: r
+    programFile: r/ReturningDataFrameAsPrint.r
+    results:
+      webout:
+        resultFormat: print
+        resultObjectName: result
+        resultType: object
+  r/ReturningConsoleOutput:
+    label: PKGR05 - Returning console output
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates how it's possible to
+      return the text written to the normal console output.
+
+      The 'resultType' field is set to 'console' to indicate that
+      the standard output from the R program should be returned
+      as the program result.
+    type: r
+    programFile: r/ReturningConsoleOutput.r
+    results:
+      webout:
+        resultType: console
+  r/ReturningStreamOutput:
+    label: PKGR06 - Returning stream output.
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates using stream output to deal
+      with cases that cannot be dealt with by returning an
+      R object directly.
+
+      Here we use it to specify the `pretty` option when
+      converting an R object to JSON.
+
+      An R *connection* object is created called 'webout'.
+      A connection object in R can be used anywhere a file
+      can bs used.
+
+      The 'resultType' field is set to 'stream'. We then
+      set 'resultContentType' to 'application/json' as we
+      are returning JSON from the program. This ensures that the
+      browser will display the results appropriately.
+    type: r
+    programFile: r/ReturningStreamOutput.r
+    results:
+      webout:
+        resultType: stream
+        resultContentType: application/json
+  r/PassingParameters:
+    label: PKGR07a - Passing Parameters
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates how parameters are passed in
+      to the R program.
+
+      Each parameter is assigned to an R variable. In this
+      case we use a string parameter, and the value is assigned
+      to the R object in the obvious way.
+    type: r
+    programFile: r/PassingParameters.r
+    results:
+      webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: result
+    parameters:
+      name:
+        datatype: string
+        required: true
+        label: Name
+        prompt: Enter your name
+  r/BooleanParameters:
+    label: PKGR07c - Exploring Boolean parameters
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates use of a boolean parameter
+
+      The program has parameters that are required and optional,
+      and with default values of true and false.
+    type: r
+    programFile: r/BooleanParameters.r
+    results:
+      webout:
+        resultFormat: print
+        resultObjectName: result
+        resultType: object
+    parameters:
+      boolOptionalNoDefault:
+        label: Boolean Optional No Default
+        datatype: bool
+      boolOptionalDefaultFalse:
+        label: Boolean Optional Default False
+        datatype: bool
+        defaultValue: false
+      boolOptionalDefaultTrue:
+        label: Boolean Optional Default true
+        datatype: bool
+        defaultValue: true
+      boolRequiredNoDefault:
+        label: Boolean Required No Default
+        datatype: bool
+        required: true
+      boolRequiredDefaultFalse:
+        label: Boolean Required Default false
+        datatype: bool
+        defaultValue: false
+        required: true
+      boolRequiredDefaultTrue:
+        label: Boolean Required Default true
+        datatype: bool
+        defaultValue: true
+        required: true
+  r/ChoiceParameters:
+    label: PKGR07b - Exploring Choice parameters
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates use of choice parameters.
+
+      For each choice two values must be provided.
+      One, the 'Label' is the string displayed to the user
+      in the selection box of an invocation interface. The
+      other, the 'value' is the value actually submitted on
+      the request, the value that the program should expect
+      to deal with.
+    type: r
+    programFile: r/ChoiceParameters.r
+    results:
+      webout:
+        resultFormat: print
+        resultObjectName: result
+        resultType: object
+    parameters:
+      choiceRequired:
+        label: Choice Parm Required
+        datatype: choice
+        prompt: Enter your choice
+        required: true
+        choices:
+        - value: value1
+        - value: value2
+      choiceOptional:
+        label: Choice Parm Optional
+        datatype: choice
+        prompt: Enter your choice
+        choices:
+        - value: value1
+        - value: value2
+  r/IntegerParameters:
+    label: PKGR07d - Exploring Integer parameters
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates use of integer parameters
+
+      In the case of the SAS language there is no specific
+      integer type, so all numeric values are passed to
+      the program as doubles. However an invocation interface
+      will use the integer type to provide suitable input validation.
+    type: r
+    programFile: r/IntegerParameters.r
+    results:
+      webout:
+        resultType: object
+        resultFormat: print
+        resultObjectName: result
+    parameters:
+      intOptionalNoDefault:
+        label: Int Optional No Default
+        datatype: int
+      intOptionalDefault42:
+        label: Int Optional Default 42
+        datatype: int
+        defaultValue: 42
+      intOptionalMax42:
+        label: Int Optional Max 42
+        datatype: int
+        max: 42
+      intOptionalMin42:
+        label: Int Optional Min 42
+        datatype: int
+        min: 42
+      intRequiredNoDefault:
+        label: Int Required No Default
+        datatype: int
+        required: true
+      intRequiredDefault42:
+        label: Int Required Default 42
+        datatype: int
+        defaultValue: 42
+        required: true
+  r/DateParameters:
+    label: PKGR07e - Exploring Date parameters
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates use of date parameters.
+
+      Dates have different representations in different
+      programming languages. A client making a request
+      to execute a program (be that programatically through
+      something like cURL, or manually through an invocation
+      user interface) shouldn't have to worry about those
+      differences.
+
+      The format of a date value on a request is therefore
+      fixed and not dependent on the language in which the
+      program may have been written.
+    type: r
+    programFile: r/DateParameters.r
+    results:
+      webout:
+        resultType: object
+        resultFormat: print
+        resultObjectName: result
+    parameters:
+      dateRequired:
+        label: Date Required
+        datatype: date
+        prompt: Enter a date
+        required: true
+      dateOptional:
+        label: Date Optional
+        datatype: date
+        prompt: Enter a date
+  r/TimeParameters:
+    label: PKGR07f - Exploring Time parameters
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates use of a time parameter.
+
+      R doesn't have direct support for time of day values.
+      Time parameters are represented as datetime values and
+      are therefore represented as time of day with a date
+      of 1 Jan 1970 UTC. So passing a time value of 11:30
+      results in a datetime value of 1 Jan 1970 at 11:30
+      UTC.
+    type: r
+    programFile: r/TimeParameters.r
+    results:
+      webout:
+        resultFormat: print
+        resultObjectName: result
+        resultType: object
+    parameters:
+      timeRequired:
+        label: Time Required
+        datatype: time
+        prompt: Enter a time
+        required: true
+      timeOptional:
+        label: Time Optional
+        datatype: time
+        prompt: Enter a time
+  r/DatetimeParameters:
+    label: PKGR07g - Exploring Datetime parameters
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates use of a Datetime parameter.
+    type: r
+    programFile: r/DatetimeParameters.r
+    results:
+      webout:
+        resultType: object
+        resultFormat: print
+        resultObjectName: result
+    parameters:
+      datetimeParm:
+        label: Datetime Parm
+        datatype: datetime
+        prompt: Enter a datetime
+        required: true
+  r/ProcessingRequestBody:
+    label: PKGR08 - Processing HTTP Request Body Directly
+    categories:
+    - R Language Example
+    description: |
+      For advanced scenarios it's possible to get direct
+      access to the body of the HTTP request, and process the
+      body directly. This may be necessary if the body is a JSON or
+      XML body with a complex structure, or perhaps if the body is
+      of a content type not otherwise supported by Hub Deployment Services.
+
+      To do this, declare a single parameter of type "stream".
+      The stream should be given a content type value.
+      If the content type of the request matches the content type
+      of the stream, then the request body is made available to the program
+      through the named stream parameter.
+
+      Note that this example cannot be invoked from the Excel plugin.
+    type: r
+    programFile: r/ProcessingRequestBody.r
+    parameters:
+      webin:
+        datatype: stream
+        contentType: text/plain
+    results:
+      webout:
+        resultType: stream
+        resultContentType: text/plain
+  r/InitProgram:
+    label: PKGR09 - Use of initialisation program text
+    categories:
+    - R Language Example
+    description: |
+      This example demonstrates use of the initialisation
+      program text.
+
+      The runtime server supports processing multiple requests
+      through the same R runtime for efficiency. The runtime
+      environment uses R environment objects to isolate each request
+      and to avoid invocation of a program poluting other invocations.
+
+      A program can specify an initialisation program text that will
+      be run only once per R runtime. This can be used to load
+      complex models into memory and avoid the overhead of having to
+      load a model on each request. The initialisation program text
+      is run within the context of a separate R environment, and this
+      environment is then locked to prevent further modification.
+
+      This example simply sets a variable in the initialisation text that
+      is then referenced in the main program text.
+
+      Note that the set up of the 'Demo' Environment object in the Hub
+      is such that a new worker process is created for each request. Since
+      a new worker process is created for each request, a new R runtime
+      is created per request anyway, so the initialisation program is
+      execute for each request. In order to properly see the effect of
+      the one-time execution of the initialisation program it is necessary
+      to set the `Idle Timeout` value on the `Default R Processing Engine`
+      engine of the Demo Environment to a value other than 0.
+
+      From the log it is possible to tell whether the initialisation
+      program has been run or not.
+    type: r
+    programFile: r/InitProgramMain.r
+    results:
+      webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: result
+    initProgramFile: r/InitProgram.r
+  r/RemoteUser:
+    label: PKGR10 - Identity of remote user
+    categories:
+    - R Language Example
+    description: |
+      This is an example of referencing the identity
+      of the calling user.
+      A list called "Context" is made available, in which there is a
+      value "RemoteUser".
+    type: r
+    programFile: r/RemoteUser.r
+    results:
+      webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: result
+  python/HelloWorld:
+    label: PKGPY01 - Hello World
+    categories:
+    - Python Language Example
+    description: |
+      This is the simplest possible example, a program
+      that takes no input and produces a fixed output,
+      'Hello World!'.
+
+      The resultType value here is 'console' meaning that
+      standard output is returned as the response from the program.
+    type: python
+    programFile: python/HelloWorld.py
+    results:
+      Webout:
+        resultType: console
+  python/ReturningSingleValue:
+    label: PKGPY02 - Returning simple values
+    categories:
+    - Python Language Example
+    description: |
+      Simple python objcts can be returned in JSON.
+
+      The standard python json package is used to convert the
+      selected object into JSON to return as the response.
+
+      The 'resultType' field msut be set to 'object', and the
+      'resultFormat' field must be set to 'json'. The
+      'resultObjectName' fiels is then used to name the python
+      object to return.
+
+
+      The following conversions are supported:
+      Python type      | JSON
+      -----------------|-----
+      dict             | object
+      list, tuple      | array
+      str              | string
+      int, float,      | number
+       int & float     |
+       derived nums    |
+      True             | true
+      False            | false
+      None             | null
+      datetime.date    | string
+      datetime.datetime| string
+      datetime.time    | string
+    type: python
+    programFile: python/ReturningSingleValue.py
+    results:
+      Webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: result
+  python/ReturningDictionary:
+    label: PKGPY03 - Returning dictionary
+    categories:
+    - Python Language Example
+    description: |
+      When more than one value needs to be returned,
+      a python dictionary can be created. The dictionary
+      is converted to JSON in the obvious way.
+    type: python
+    programFile: python/ReturningDictionary.py
+    results:
+      Webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: result
+  python/ReturningStream:
+    label: PKGPY03 - Returning stream
+    categories:
+    - Python Language Example
+    description: |
+      For complete control over the response a
+      stream result type can be specified.
+      By setting the 'resultType' field to 'stream'
+      a bytes based file-like object called 'Webout' is
+      created in the python environment. Any content can
+      be written to this.
+
+      When 'resultType' is set to 'stream', the 'resultContentType'
+      field must also be used to provide the content type for the
+      HTTP response.
+
+      Since a bytes based object is created, it is necessary to create
+      a TextIOWrapper instance if text output is being generated.
+
+      Here we manually return JSON. You might need to do this to control
+      the output of the json, or add support for converting custom
+      python types.
+    type: python
+    programFile: python/ReturningStream.py
+    results:
+      Webout:
+        resultType: stream
+        resultContentType: application/json
+    requiredPackages:
+    - json
+    - io
+  python/PassingParameters:
+    label: PKGPY04 - Passing Parameters
+    categories:
+    - Python Language Example
+    description: |
+      This example demonstrates how parameters are passed in
+      to the Python program.
+
+      By default each parameter is assigned to a Python variable.
+      In this case we use a string parameter, and the value is assigned
+      to the Python object in the obvious way.
+    type: python
+    programFile: python/PassingParameters.py
+    results:
+      Webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: result
+    parameterStyle: normal
+    parameters:
+      name:
+        datatype: string
+        required: true
+        label: Name
+        prompt: Enter your name
+  python/BooleanParameters:
+    label: PKGPY04a - Exploring Boolean parameters
+    categories:
+    - Python Language Example
+    description: |
+      This example demonstrates use of a boolean parameter
+
+      The program has parameters that are required and optional,
+      and with default values of true and false.
+
+      For convinience here we use the 'parameterStyle' option
+      of 'dictionary'. This causes all parameters to be passed to the
+      python in a single dictionary called 'Parms'.
+    type: python
+    programFile: python/BooleanParameters.py
+    results:
+      Webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: result
+    parameterStyle: dictionary
+    parameters:
+      boolOptionalNoDefault:
+        label: Boolean Optional No Default
+        datatype: bool
+      boolOptionalDefaultFalse:
+        label: Boolean Optional Default False
+        datatype: bool
+        defaultValue: false
+      boolOptionalDefaultTrue:
+        label: Boolean Optional Default true
+        datatype: bool
+        defaultValue: true
+      boolRequiredNoDefault:
+        label: Boolean Required No Default
+        datatype: bool
+        required: true
+      boolRequiredDefaultFalse:
+        label: Boolean Required Default false
+        datatype: bool
+        defaultValue: false
+        required: true
+      boolRequiredDefaultTrue:
+        label: Boolean Required Default true
+        datatype: bool
+        defaultValue: true
+        required: true
+  python/ChoiceParameters:
+    label: PKGPY04f - Exploring Choice parameters
+    categories:
+    - Python Language Example
+    description: |
+      This example demonstrates use of choice parameters.
+
+      For each choice two values must be provided.
+      One, the 'Label' is the string displayed to the user
+      in the selection box of an invocation interface. The
+      other, the 'value' is the value actually submitted on
+      the request, the value that the program should expect
+      to deal with.
+    type: python
+    programFile: python/ChoiceParameters.py
+    results:
+      Webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: result
+    parameterStyle: dictionary
+    parameters:
+      choiceRequired:
+        label: Choice Parm Required
+        datatype: choice
+        prompt: Enter your choice
+        required: true
+        choices:
+        - value: value1
+        - value: value2
+      choiceOptional:
+        label: Choice Parm Optional
+        datatype: choice
+        prompt: Enter your choice
+        choices:
+        - value: value1
+        - value: value2
+  python/IntegerParameters:
+    label: PKGPY04b - Exploring integer parameters
+    categories:
+    - Python Language Example
+    description: |
+      This example demonstrates use of an integer parameter
+
+      The program has parameters that are required and optional,
+      and with default values of true and false.
+
+      For convinience here we use the 'parameterStyle' option
+      of 'dictionary'. This causes all parameters to be passed to the
+      python in a single dictionary called 'Parms'. We when simply
+      return that object as the result of the program, so no actual
+      Python program is required at all.
+    type: python
+    results:
+      Webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: Parms
+    parameterStyle: dictionary
+    parameters:
+      intOptionalNoDefault:
+        label: Int Optional No Default
+        datatype: int
+      intOptionalDefault42:
+        label: Int Optional Default 42
+        datatype: int
+        defaultValue: 42
+      intOptionalMax42:
+        label: Int Optional Max 42
+        datatype: int
+        max: 42
+      intOptionalMin42:
+        label: Int Optional Min 42
+        datatype: int
+        min: 42
+      intRequiredNoDefault:
+        label: Int Required No Default
+        datatype: int
+        required: true
+      intRequiredDefault42:
+        label: Int Required Default 42
+        datatype: int
+        defaultValue: 42
+        required: true
+  python/DateParameters:
+    label: PKGPY04c - Exploring Date parameters
+    categories:
+    - Python Language Example
+    description: |
+      This example demonstrates use of date parameters.
+
+      Dates have different representations in different
+      programming languages. A client making a request
+      to execute a program (be that programatically through
+      something like cURL, or manually through an invocation
+      user interface) shouldn't have to worry about those
+      differences.
+
+      The format of a date value on a request is therefore
+      fixed and not dependent on the language in which the
+      program may have been written.
+
+      Here we just pass the parameters into Python in the form
+      of a dictionary ('parameterStyle' set to 'dictionary') and then
+      return that object as the response to show how the parameters
+      are represented in Python.
+
+      Date values are represented in Python as naive datetime.date
+      objects.
+    type: python
+    results:
+      Webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: Parms
+    parameterStyle: dictionary
+    parameters:
+      dateRequired:
+        label: Date Required
+        datatype: date
+        prompt: Enter a date
+        required: true
+      dateOptional:
+        label: Date Optional
+        datatype: date
+        prompt: Enter a date
+  python/TimeParameters:
+    label: PKGPY04e - Exploring Time parameters
+    categories:
+    - Python Language Example
+    description: |
+      This example demonstrates use of a time parameter.
+
+
+      Date values are represented in Python as naive datetime.time
+      objects.
+    type: python
+    results:
+      Webout:
+        resultFormat: json
+        resultObjectName: Parms
+        resultType: object
+    parameterStyle: dictionary
+    parameters:
+      timeRequired:
+        label: Time Required
+        datatype: time
+        prompt: Enter a time
+        required: true
+      timeOptional:
+        label: Time Optional
+        datatype: time
+        prompt: Enter a time
+  python/DatetimeParameters:
+    label: PKGPY04d - Exploring Datetime parameters
+    categories:
+    - Python Language Example
+    description: |
+      This example demonstrates use of a Datetime parameter.
+
+
+      Date values are represented in Python as naive datetime.datetime
+      objects.
+    type: python
+    results:
+      Webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: Parms
+    parameterStyle: dictionary
+    parameters:
+      datetimeParm:
+        label: Datetime Parm
+        datatype: datetime
+        prompt: Enter a datetime
+        required: true
+  python/ProcessingRequestBody:
+    label: PKGPY10 - Processing HTTP Request Body Directly
+    categories:
+    - Python Language Example
+    description: |
+      For advanced scenarios it's possible to get direct
+      access to the body of the HTTP request, and process the
+      body directly. This may be necessary if the body is a JSON or
+      XML body with a complex structure, or perhaps if the body is
+      of a content type not otherwise supported by Hub Deployment Services.
+
+      To do this, declare a single parameter of type "stream".
+      The stream should be given a content type value.
+      If the content type of the request matches the content type
+      of the stream, then the request body is made available to the program
+      through the named stream parameter.
+
+      Note that this example cannot be invoked from the Excel plugin.
+
+      The content is made available through a bytes based file-like object.
+      In this example we simply copy the content to the output.
+    type: python
+    programFile: python/ProcessingRequestBody.py
+    parameterStyle: normal
+    parameters:
+      Webin:
+        datatype: stream
+        contentType: text/plain
+    results:
+      Webout:
+        resultType: stream
+        resultContentType: text/plain
+  python/InitProgram:
+    label: PKGPY05 - Use of an initialisation program
+    categories:
+    - Python Language Example
+    description: |
+      This example demonstrates use of the initialisation
+      program text.
+
+      The runtime server supports processing multiple requests
+      through the same Python runtime for efficiency. Each program
+      is isolated by being run in the context of a specific
+      dictionary for global and local variables.
+
+      A program can specify an initialisation program text that will
+      be run only once per python runtime. This can be used to load
+      complex models into memory and avoid the overhead of having to
+      load a model on each request.
+
+      This example simply sets a variable in the initialisation text that
+      is then referenced in the main program text.
+
+      Note that the set up of the 'Demo' Environment object in the Hub
+      is such that a new worker process is created for each request. Since
+      a new worker process is created for each request, a new Python runtime
+      is created per request anyway, so the initialisation program is
+      execute for each request. In order to properly see the effect of
+      the one-time execution of the initialisation program it is necessary
+      to set the `Idle Timeout` value on the `Default Python Processing Engine`
+      engine of the Demo Environment to a value other than 0.
+
+      From the log it is possible to tell whether the initialisation
+      program has been run or not.
+    type: python
+    programFile: python/InitProgramMain.py
+    results:
+      Webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: result
+    initProgramFile: python/InitProgram.py
+  python/ReturningGraphics:
+    label: PKGPY06 - Returning Graphics
+    categories:
+    - Python Language Example
+    description: |
+      This example demonstrates generating some simple graphical output.
+
+      The resultContentType property must be set appropriately for the
+      type of image generated.
+    type: python
+    programFile: python/ReturningGraphics.py
+    results:
+      Webout:
+        resultContentType: image/png
+        resultType: stream
+  python/ReturningDataFrameAsCsv:
+    label: PKGPY07 - Returning Pandas DataFrame as CSV
+    categories:
+    - Python Language Example
+    description: |
+      This example shows returning a Python Pandas data DataFrame
+      in CSV format.
+
+      For this to run, the python environment needs to have Pandas
+      installed.
+
+      This uses the pandas supplied support for converting into CSV.
+    type: python
+    programFile: python/CreatePandasDataFrame.py
+    results:
+      Webout:
+        resultFormat: csv
+        resultObjectName: result
+        resultType: object
+  python/ReturningDataFrameAsHtml:
+    label: PKGPY08 - Returning Pandas DataFrame as HTML
+    categories:
+    - Python Language Example
+    description: |
+      This example shows returning a Python Pandas data DataFrame
+      in HTML format.
+
+      For this to run, the python environment needs to have Pandas
+      installed.
+
+      This uses the pandas supplied support for converting into HTML.
+    type: python
+    programFile: python/CreatePandasDataFrame.py
+    results:
+      Webout:
+        resultFormat: html
+        resultObjectName: result
+        resultType: object
+  python/ReturningDataFrameAsExcel:
+    label: PKGPY09 - Returning Pandas DataFrame as Excel
+    categories:
+    - Python Language Example
+    description: |
+      This example shows returning a Python Pandas data DataFrame
+      in Excel format.
+
+      For this to run, the python environment needs to have Pandas
+      installed.
+
+      This uses the pandas supplied support for converting into Excel.
+    type: python
+    programFile: python/CreatePandasDataFrame.py
+    results:
+      Webout:
+        resultFormat: excel
+        resultObjectName: result
+        resultType: object
+  python/RemoteUser:
+    label: PKGPY11 - Identity of remote user
+    categories:
+    - Python Language Example
+    description: |
+      This is an example of referencing the identity
+      of the calling user.
+      A dictionary called "Context" is mde available, in which there is a
+      value "RemoteUser".
+    type: python
+    programFile: python/RemoteUser.py
+    results:
+      webout:
+        resultType: object
+        resultFormat: json
+        resultObjectName: result
+
+  lw/ScoreHeightDataBoys:
+    label: PKGLW01 - Low latency scoring of linear regression model
+    type: lightweight
+    categories:
+      - Low Latency Example
+    description: |
+      This example shows low latency scoring of a linear regression model.
+
+      The source file HeightDataBoys.sas uses PROC REG to build a linear
+      regression model from a source data set. It utilises the "code"
+      statement to generate scoring code for that model into the file
+      "ScoreHeightDataBoys.sas". This scoring code source file
+      is then referenced here so that a web service is then generated that
+      scores records according to the generated model.
+    # programFile: lw/ScoreHeightDataBoys.sas
+    # programFile support broken in 4.3EA1 and 4.2GA
+    programText: |
+      label _PredValue_ = "Predicted Value of Height";
+      label _Residual_ = " Residual of Height";
+      label _ErrorVal_ = "Standardised Error of Height";
+      _PredValue_ = 82.4285714285714 + (5.53571428571429 * Age);
+      _Residual_ = (Height - _PredValue_);
+      _ErrorVal_ = (2.42857142857143 - (0.28571428571429 * Age));
+      _ErrorVal_ = _ErrorVal_ + Age * (-0.28571428571429 + (0.03571428571429 *
+      Age));
+      _ErrorVal_ = 0.82375447104893 * SQRT(_ErrorVal_);
+
+    parameters:
+      Age:
+        required: true
+        datatype: float
+    resultVariables: [_PredValue_, _Residual_, _ErrorVal_]
+
+  lw/ScoreDecisionTree:
+    label: PKGLW02 - Low latency scoring of decision tree
+    type: lightweight
+    categories:
+      - Low Latency Example
+    description: |
+      This example shows low latency scoring of a decision tree model.
+
+      The source file DecisionTree.sas uses PROC DECISIONTREE to build a
+      decision tree model from a source data set. It utilises the "code"
+      statement to generate scoring code for that model into the file
+      "ScoreDecisionTree.sas". This scoring code source file
+      is then referenced here so that a web service is then generated that
+      scores records according to the generated model.
+    # programFile: lw/ScoreDecisionTree.sas
+    # programFile support broken in 4.3EA1 and 4.2GA
+    programText: |
+        LABEL CLASS_PROB1 = 'Setosa    ' CLASS_PROB2 = 'Versicolou' CLASS_PROB3 =
+        'Virginica ' ;
+        IF PETALLENGTH LE                   19 THEN DO;
+            CLASS_PROB1 =                    1;
+            CLASS_PROB2 =                    0;
+            CLASS_PROB3 =                    0;
+        END;
+        ELSE IF PETALLENGTH GT                   19 THEN DO;
+            IF PETALWIDTH LE                   17 THEN DO;
+                IF PETALLENGTH LE                   49 THEN DO;
+                    IF PETALWIDTH LE                   16 THEN DO;
+                        CLASS_PROB1 =                    0;
+                        CLASS_PROB2 =                    1;
+                        CLASS_PROB3 =                    0;
+                    END;
+                    ELSE IF PETALWIDTH GT                   16 THEN DO;
+                        CLASS_PROB1 =                    0;
+                        CLASS_PROB2 =                    0;
+                        CLASS_PROB3 =                    1;
+                    END;
+                END;
+                ELSE IF PETALLENGTH GT                   49 THEN DO;
+                    IF PETALWIDTH LE                   15 THEN DO;
+                        CLASS_PROB1 =                    0;
+                        CLASS_PROB2 =                    0;
+                        CLASS_PROB3 =                    1;
+                    END;
+                    ELSE IF PETALWIDTH GT                   15 THEN DO;
+                        IF SEPALLENGTH LE                   69 THEN DO;
+                            CLASS_PROB1 =                    0;
+                            CLASS_PROB2 =                    1;
+                            CLASS_PROB3 =                    0;
+                        END;
+                        ELSE IF SEPALLENGTH GT                   69 THEN DO;
+                            CLASS_PROB1 =                    0;
+                            CLASS_PROB2 =                    0;
+                            CLASS_PROB3 =                    1;
+                        END;
+                    END;
+                END;
+            END;
+            ELSE IF PETALWIDTH GT                   17 THEN DO;
+                IF PETALLENGTH LE                   48 THEN DO;
+                    IF SEPALLENGTH LE                   59 THEN DO;
+                        CLASS_PROB1 =                    0;
+                        CLASS_PROB2 =                    1;
+                        CLASS_PROB3 =                    0;
+                    END;
+                    ELSE IF SEPALLENGTH GT                   59 THEN DO;
+                        CLASS_PROB1 =                    0;
+                        CLASS_PROB2 =                    0;
+                        CLASS_PROB3 =                    1;
+                    END;
+                END;
+                ELSE IF PETALLENGTH GT                   48 THEN DO;
+                    CLASS_PROB1 =                    0;
+                    CLASS_PROB2 =                    0;
+                    CLASS_PROB3 =                    1;
+                END;
+            END;
+        END;
+
+    parameters:
+      SepalLength:
+        required: true
+        datatype: float
+      SepalWidth:
+        required: true
+        datatype: float
+      PetalLength:
+        required: true
+        datatype: float
+      PetalWidth:
+        required: true
+        datatype: float
+    resultVariables: [Class_Prob1, Class_Prob2, Class_Prob3]
+
+categories:
+- Example

@@ -1,0 +1,11 @@
+data _null_;
+file _webout;
+datetimeParm = &datetimeParm;
+datetimeOptionalDefault = &datetimeOptionalDefault;
+datetimeOptionalMin = &datetimeOptionalMin;
+datetimeOptionalMax = &datetimeOptionalMax;
+put "datetimeParm value was " datetimeParm datetime17.;
+put "datetimeOptionalDefault value was " datetimeOptionalDefault datetime17.;
+put "datetimeOptionalMin value was " datetimeOptionalMin datetime17.;
+put "datetimeOptionalMax value was " datetimeOptionalMax datetime17.;
+run;

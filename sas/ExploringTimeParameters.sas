@@ -1,0 +1,13 @@
+data _null_;
+file _webout;
+timeRequired = &timeRequired;
+timeOptional = &timeOptional;
+timeOptionalDefault = &timeOptionalDefault;
+timeRequiredMin = &timeRequiredMin;
+timeRequiredMax = &timeRequiredMax;
+put "timeRequired value was " timeRequired time9. '(' timeRequired +(-1) ')';
+put "timeOptional value was " timeOptional time9. '(' timeOptional +(-1) ')';
+put "timeOptionalDefault value was " timeOptionalDefault time9. '(' timeOptionalDefault +(-1) ')';
+put "timeRequiredMin value was " timeRequiredMin time9. '(' timeRequiredMin +(-1) ')';
+put "timeRequiredMax value was " timeRequiredMax time9. '(' timeRequiredMax +(-1) ')';
+run;

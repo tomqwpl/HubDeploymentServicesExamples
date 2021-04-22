@@ -1,0 +1,10 @@
+data CTX.PARMS;
+format dateParm date9.;
+format datetimeParm datetime17.;
+stringParm = "&stringParm";
+intParm = &intParm;
+floatParm = &floatlParm;
+dateParm = &dataParm;
+timeParm = &timeParm;
+datatimeParm = &datetimeParm;
+run;

@@ -1,0 +1,1 @@
+Webout.write(Webin.readall())
